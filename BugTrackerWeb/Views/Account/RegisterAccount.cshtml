@@ -1,0 +1,60 @@
+﻿@model Account
+@{
+    ViewData["Title"] = "RegisterAccount";
+    var errorUserName = TempData["ErrorUserName"] as string;
+    var errorEmail = TempData["ErrorEmail"] as string;
+}
+<head>
+    <style>
+        body{
+            background-image:url(../Images/Repeat_DarkWood.png);
+        }
+    </style>
+</head>
+<div id="Page_Register">
+<h1>Registriere deinen Account</h1>
+@if (!string.IsNullOrEmpty(errorUserName))
+{
+    <h2 class=alert-danger style="padding:20px; font-size:20px">@errorUserName</h2>
+}
+    @if (!string.IsNullOrEmpty(errorEmail))
+    {
+        <h3 class=alert-danger style="padding:20px; font-size:20px">@errorEmail</h3>
+    }
+    <form method="post" autocomplete=off>
+    <div style="width:250px">
+        <div class="mb-3">
+            <label asp-for="UserName"></label>
+            <input asp-for="UserName" class="form-control" /> 
+            <span asp-validation-for="UserName" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Email"></label>
+            <input asp-for="Email" class="form-control" />     
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>      
+        <div class="mb-3">
+            <label asp-for="Password"></label>
+            <input asp-for="Password" class="form-control" /> 
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="ConfirmPassword"></label>
+            <input asp-for="ConfirmPassword" class="form-control" /> 
+            <span  asp-validation-for="ConfirmPassword" class="text-danger"></span>
+        </div>
+
+   </div>
+                                 
+        <button type="submit" class="btn btn-primary" style="width:150px">Registrieren</button>
+          
+</form>
+</div>
+
+
+@section Scripts{
+    @{
+    <partial name="_ValidationScriptsPartial" />
+    }
+}
+

@@ -1,0 +1,63 @@
+﻿@model Ticket
+<head>
+    <style>
+        body{
+            background-image:url(/Images/Repeat_DarkWood.png);
+        }
+    </style>
+</head>
+
+<form method="post" autocomplete=off>
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary">Erstelle ein Ticket</h2>
+            <hr />
+        </div>
+        @*<div asp-validation-summary="All"></div>*@
+        <div class="mb-3">
+            <label asp-for="ProjectName"></label>
+            <input asp-for="ProjectName" class="form-control" />
+            <span asp-validation-for="ProjectName" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Description"></label>
+            <input asp-for="Description" class="form-control" />
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+       
+        <div class="mb-3">
+            <label asp-for="AssignedTo"></label>
+            <input asp-for="AssignedTo" class="form-control" />
+            <span asp-validation-for="AssignedTo" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="FoundBy"></label>
+            <input asp-for="FoundBy" class="form-control" />
+            <span asp-validation-for="FoundBy" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="TesterComment"></label>
+            <input asp-for="TesterComment" class="form-control" />
+            <span asp-validation-for="TesterComment" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Severity"></label>
+            <select name="Severity"id="Severity">
+                <option value="Gering">Gering</option>
+                 <option value="Mittel">Mittel</option>
+                  <option value="Sehr Hoch">Sehr Hoch</option>
+            </select>   
+            <span asp-validation-for="Severity" class="text-danger"></span>
+        </div>
+                    
+        <button type="submit" class="btn btn-primary" style="width:150px">Erstellen</button>
+        <a asp-controller="Ticket" asp-action="Index" class="btn btn-secondary" style="width:150px">Zurück</a>
+    </div>
+</form>
+@section Scripts{
+    @{
+    <partial name="_ValidationScriptsPartial" />
+    
+    }
+}

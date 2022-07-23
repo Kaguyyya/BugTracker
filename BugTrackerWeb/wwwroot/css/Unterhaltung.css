@@ -1,0 +1,30 @@
+﻿body {
+    
+}
+.container{
+    margin-top:10px;
+}
+.container h1
+{
+   text-align:center;
+   margin-bottom:20px;
+  
+}
+.Game1{
+    display:flex;
+    justify-content:center;
+    align-content:center;
+    
+    
+   
+    
+}
+.Game1 h1 {
+        background-color: darkgreen;
+        padding:10px;
+    }
+.SnakeImage {
+    height: 79px;
+    width: 100px;
+    background-color: darkgreen;
+}

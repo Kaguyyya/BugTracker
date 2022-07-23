@@ -1,0 +1,169 @@
+﻿@model IEnumerable<Ticket>
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-primary">Ticket Liste</h2>
+        </div>
+
+        <div class="col-6 text-end">
+            <a asp-controller="Ticket" asp-action="Create" class="btn btn-primary ">
+              <i class="bi bi-plus-circle"></i>&nbsp;&nbsp;Erstelle ein neues Ticket
+            </a>
+        </div>
+    </div>
+    <br/>
+    <br/>
+    @*
+    <div style="text-align:center">
+<table style="float:left;margin-top:50px;margin-right:10px"> 
+  <tr style="font-size:25px;height:100px;">
+    <th >Aktiv</th>  
+  </tr>  
+  <tr style="font-size:25px;height:100px">
+    <td>Gelöst</td>
+  </tr>
+</table>
+</div>
+*@
+<table class="table table-bordered table-striped" style="width:100%">
+    <thead>
+       
+        <tr>         
+            <th>
+                Ticket Name
+            </th>
+            <th>
+                Beschreibung
+            </th>
+            <th>
+                Zugewiesen
+            </th>
+            <th>
+                Tester
+            </th>
+            <th>
+                Priorität
+            </th>
+            <th>
+                Status
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var obj in Model)
+        {
+                @if (obj.Severity == "Gering" && obj.Status =="Aktiv")
+                {
+                    <tr class="table-success">              
+                        <td>
+                    @obj.ProjectName
+                </td>
+                 <td >
+                    @obj.Description
+                </td>
+                 <td>
+                    @obj.AssignedTo
+                </td>
+                 <td >
+                    @obj.FoundBy
+                </td>
+                 <td>
+                    @obj.Severity
+                </td>
+                 <td >
+                    @obj.Status
+                </td>
+                <td>
+                     <div class="w-75 btn-group">
+            <a asp-controller="Ticket" asp-action="Edit" asp-route-id="@obj.Id" class="btn btn-primary">
+              <i class="bi bi-pencil-square"></i>Edit
+            </a>
+              <a asp-controller="Ticket" asp-action="Delete" asp-route-id="@obj.Id" class="btn btn-secondary">
+              <i class="bi bi-trash"></i>Löschen
+            </a>
+               </div>
+             
+                </td>
+                    </tr>
+                }
+                else if(obj.Severity=="Mittel" && obj.Status =="Aktiv")
+                {
+                    //Start of row generation
+                    <tr class="table-warning">              
+                        <td>
+                    @obj.ProjectName
+                </td>
+                 <td >
+                    @obj.Description
+                </td>
+                 <td>
+                    @obj.AssignedTo
+                </td>
+                 <td >
+                    @obj.FoundBy
+                </td>
+                 <td>
+                    @obj.Severity
+                </td>
+                 <td >
+                    @obj.Status
+                </td>
+                <td>
+                     <div class="w-75 btn-group">
+            <a asp-controller="Ticket" asp-action="Edit" asp-route-id="@obj.Id" class="btn btn-primary">
+              <i class="bi bi-pencil-square"></i>Edit
+            </a>
+             <a asp-controller="Ticket" asp-action="Delete" asp-route-id="@obj.Id" class="btn btn-secondary">
+              <i class="bi bi-trash"></i>Löschen
+            </a>
+               </div>
+                </td>
+                    </tr>
+                    // end of row generationn
+                }
+                else if(obj.Severity=="Sehr Hoch"&& obj.Status =="Aktiv")
+                {
+                   //Start of row generation
+                    <tr class="table-danger">              
+                        <td>
+                    @obj.ProjectName
+                </td>
+                 <td >
+                    @obj.Description
+                </td>
+                 <td>
+                    @obj.AssignedTo
+                </td>
+                 <td >
+                    @obj.FoundBy
+                </td>
+                 <td>
+                    @obj.Severity
+                </td>
+                 <td >
+                    @obj.Status
+                </td>
+                <td>
+                     <div class="w-75 btn-group">
+            <a asp-controller="Ticket" asp-action="Edit" asp-route-id="@obj.Id" class="btn btn-primary">
+              <i class="bi bi-pencil-square"></i>Edit
+            </a>
+             <a asp-controller="Ticket" asp-action="Delete" asp-route-id="@obj.Id" class="btn btn-secondary">
+              <i class="bi bi-trash"></i>Löschen
+            </a>
+               </div>
+                </td>
+                    </tr>
+                    // end of row generationn 
+                }
+
+            }
+    </tbody>
+</table>
+</div>
+

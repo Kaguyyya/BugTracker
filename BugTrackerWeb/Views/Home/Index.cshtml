@@ -1,0 +1,22 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<head>
+    <link rel="stylesheet" href="/css/Homestyle.css">
+</head>
+<body>
+    <div class="showcase">
+        <div class="picture">
+            <video src="Images/GreenLeaf.mp4" muted loop autoplay></video>
+        </div>
+        <div class="main1 disable-select">
+            <h1>Einfach deine Projekte organisieren</h1>
+            <h2>Mit BugTrackerWeb</h2>
+
+        </div>
+        <div class="button">
+            <a asp-controller="Ticket" asp-action="Index"class="btn btn-primary"role="button">Tickets Ansehen</a>
+        </div>
+        
+    </div>
+</body>
